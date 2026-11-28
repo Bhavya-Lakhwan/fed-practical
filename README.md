@@ -57,32 +57,3 @@ typing-speed-test/
 ├── app.js           # Real-time typing engine, timer, & WPM formulas
 └── README.md        # Comprehensive documentation & Viva Q&A
 ```
-
----
-
-## 💻 How to Run the Project
-
-1. Simply double-click [`index.html`](index.html) to run it in any browser (Chrome, Edge, Firefox, Safari).
-2. Or use Python to start a local server:
-   ```bash
-   python -m http.server 5000
-   ```
-   Then open `http://localhost:5000`.
-
----
-
-## 🎯 Viva & Practical Exam Questions (Preparation Guide)
-
-### Q1. Why is 1 word considered 5 characters in typing tests?
-> **Answer:** In standardized typing evaluation (such as typewriter and keyboard benchmarking), words vary in length. Standard industry formula defines a "word" as **5 keystrokes** (including letters, punctuation, and spaces) to ensure fair comparisons regardless of text difficulty.
-
-### Q2. How is Net WPM different from Gross (Raw) WPM?
-> **Answer:**
-> - **Gross (Raw) WPM** calculates all characters typed divided by 5 per minute, regardless of errors.
-> - **Net WPM** subtracts the error count from the total keystrokes before dividing by 5. It measures productive, mistake-free typing speed.
-
-### Q3. How does the application capture keystrokes smoothly?
-> **Answer:** It uses an off-screen, focused `<input>` element listening for `input` events. Each input event retrieves the latest character typed, compares it against the expected character in the text array at `currentIndex`, and applies `.correct` or `.incorrect` CSS classes dynamically.
-
-### Q4. How do you prevent memory leaks with `setInterval()`?
-> **Answer:** Whenever the timer hits 0 or the user clicks "Restart", we call `clearInterval(timerInterval)` and reset the reference to `null`. This prevents orphaned timer threads from running in the browser background.
